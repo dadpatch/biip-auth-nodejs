@@ -12,7 +12,7 @@ const serialize = function(obj) {
 }
 
 class Request {
-  constructor(apiKey, host = 'https://auth.smala.lt') {
+  constructor(apiKey, host = 'https://auth.biip.lt') {
     this.apiKey = apiKey
     this.host = host
   }
