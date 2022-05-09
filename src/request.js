@@ -48,14 +48,8 @@ class Request {
   request(endpoint = "", options = {}) {
     const url = this.host + endpoint;
 
-    const headers = {
-        "Authorization": `Bearer ${this.apiKey}`,
-        "X-Requested-With": "XMLHttpRequest",
-        "Content-type": "application/json",
-    };
-
     const config = {
-        headers: headers,
+        headers: this.getHeaders(),
         ...options,
     };
 
