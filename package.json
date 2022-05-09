@@ -1,0 +1,24 @@
+{
+  "name": "@am/auth-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AplinkosMinisterija/auth.git",
+    "directory": "nodejs"
+  },
+  "author": "Pranciškus Ambrazas",
+  "license": "MIT",
+  "types": "./index.d.ts",
+  "bugs": {
+    "url": "https://github.com/AplinkosMinisterija/auth/issues"
+  },
+  "homepage": "https://github.com/AplinkosMinisterija/auth/nodejs#readme",
+  "dependencies": {
+    "isomorphic-unfetch": "^3.1.0"
+  }
+}
