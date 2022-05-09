@@ -18,12 +18,9 @@
 1. Update `package.json`
 ```json
 {
-  ...
   "dependencies": {
-    ...
-    "@dadpatch/biip-auth-nodejs": "github:DadPatch/biip-auth-nodejs"
+    "biip-auth-nodejs": "github:DadPatch/biip-auth-nodejs",
   }
-  ...
 }
 ```
 
@@ -37,7 +34,7 @@ npm i # or yarn
 ## Login
 
 ```js
-const auth = require("@dadpatch/biip-auth-nodejs");
+const auth = require("biip-auth-nodejs");
 
 await auth("api_key").login(
   "your@email.com",
@@ -51,7 +48,7 @@ await auth("api_key").login(
 ### Initiate login
 
 ```js
-const auth = require("@dadpatch/biip-auth-nodejs");
+const auth = require("biip-auth-nodejs");
 
 await auth("api_key").evartai.sign(
   "https://www.website.com" // used to redirect after successful login
@@ -61,7 +58,7 @@ await auth("api_key").evartai.sign(
 ### Login with ticket 
 
 ```js
-const auth = require("@dadpatch/biip-auth-nodejs");
+const auth = require("biip-auth-nodejs");
 
 await auth("api_key").evartai.login(
   "ticket" // ticket id after successful login (from url params)
@@ -73,7 +70,7 @@ await auth("api_key").evartai.login(
 ### Me
 
 ```js
-const auth = require("@dadpatch/biip-auth-nodejs");
+const auth = require("biip-auth-nodejs");
 
 await auth("api_key").setUser("token").me()
 ```
@@ -81,7 +78,7 @@ await auth("api_key").setUser("token").me()
 ### Logout
 
 ```js
-const auth = require("@dadpatch/biip-auth-nodejs");
+const auth = require("biip-auth-nodejs");
 
 await auth("api_key").setUser("token").logout()
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "@dadpatch/biip-auth-nodejs",
+  "name": "biip-auth-nodejs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
