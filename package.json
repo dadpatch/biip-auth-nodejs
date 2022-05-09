@@ -8,16 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AplinkosMinisterija/auth.git",
-    "directory": "nodejs"
+    "url": "git+https://github.com/DadPatch/biip-auth-nodejs.git"
   },
   "author": "Pranciškus Ambrazas",
   "license": "MIT",
   "types": "./index.d.ts",
   "bugs": {
-    "url": "https://github.com/AplinkosMinisterija/auth/issues"
+    "url": "https://github.com/DadPatch/biip-auth-nodejs/issues"
   },
-  "homepage": "https://github.com/AplinkosMinisterija/auth/nodejs#readme",
+  "homepage": "https://github.com/DadPatch/biip-auth-nodejs#readme",
   "dependencies": {
     "isomorphic-unfetch": "^3.1.0"
   }
