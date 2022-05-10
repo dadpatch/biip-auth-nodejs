@@ -8,8 +8,8 @@ interface Tokens {
 }
 
 interface Crud {
-  get(data: GenericObject): Promise<Array<GenericObject>>
-  getOne(id: string, data: GenericObject): Promise<GenericObject>
+  get(data?: GenericObject): Promise<Array<GenericObject>>
+  getOne(id: string, data?: GenericObject): Promise<GenericObject>
   create(data: GenericObject): Promise<GenericObject>
   update(id: string, data: GenericObject): Promise<GenericObject>
 }
