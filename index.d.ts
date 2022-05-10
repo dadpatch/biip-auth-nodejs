@@ -1,5 +1,5 @@
 
-declare function auth(apiKey: string, options: {
+declare function auth(apiKey: string, options?: {
   host?: string 
 }): Auth.AuthInterface
 interface Tokens {
