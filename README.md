@@ -34,9 +34,11 @@ npm i # or yarn
 ## Login
 
 ```js
-const auth = require("biip-auth-nodejs");
+const auth = require("biip-auth-nodejs")("api_key");
+import authModule from "biip-auth-nodejs"
+const auth = authModule("api_key")
 
-await auth("api_key").login(
+await auth.login(
   "your@email.com",
   "password",
   false // generate refresh token? false by default
@@ -48,9 +50,10 @@ await auth("api_key").login(
 ### Initiate login
 
 ```js
-const auth = require("biip-auth-nodejs");
+import authModule from "biip-auth-nodejs"
+const auth = authModule("api_key")
 
-await auth("api_key").evartai.sign(
+await auth.evartai.sign(
   "https://www.website.com" // used to redirect after successful login
 )
 ```
@@ -58,9 +61,10 @@ await auth("api_key").evartai.sign(
 ### Login with ticket 
 
 ```js
-const auth = require("biip-auth-nodejs");
+import authModule from "biip-auth-nodejs"
+const auth = authModule("api_key")
 
-await auth("api_key").evartai.login(
+await auth.evartai.login(
   "ticket" // ticket id after successful login (from url params)
 )
 ```
@@ -70,15 +74,17 @@ await auth("api_key").evartai.login(
 ### Me
 
 ```js
-const auth = require("biip-auth-nodejs");
+import authModule from "biip-auth-nodejs"
+const auth = authModule("api_key")
 
-await auth("api_key").setUser("token").me()
+await auth.setUser("token").me()
 ```
 
 ### Logout
 
 ```js
-const auth = require("biip-auth-nodejs");
+import authModule from "biip-auth-nodejs"
+const auth = authModule("api_key")
 
-await auth("api_key").setUser("token").logout()
+await auth.setUser("token").logout()
 ```
