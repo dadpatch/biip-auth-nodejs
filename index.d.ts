@@ -1,5 +1,7 @@
 
-declare function auth(apiKey: string): Auth.AuthInterface
+declare function auth(apiKey: string, options: {
+  host?: string 
+}): Auth.AuthInterface
 interface Tokens {
   token: string;
   refreshToken?: string | null;
