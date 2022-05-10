@@ -9,7 +9,7 @@ interface GenericObject { [name: string]: any }
 
 declare namespace Auth {
   export interface AuthInterface {
-    login(username: string, password: string, refresh?: boolean): Promise<Tokens>
+    login(email: string, password: string, refresh?: boolean): Promise<Tokens>
     evartai: {
       login(ticket: string, refresh?: boolean): Promise<Tokens>
       sign(host: string): Promise<{
