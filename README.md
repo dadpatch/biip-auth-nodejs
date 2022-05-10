@@ -3,16 +3,17 @@
 # Table of Contents
 - [Instalation](#instalation)
 - [Usage](#usage)
+  * [Initialize in project](#initialize)
   * [Login with password](#login)
   * [Evartai](#evartai)
     + [Initiate login](#initiate-login)
     + [Login with ticket](#login-with-ticket)
-  * [User](#user)
-    + [Me](#me)
+  * [Authenticated](#authenticated)
+    + [Set Token](#set-token)
+    + [CRUD](#crud)
     + [Logout](#logout)
 
 # Instalation 
-
 ## Setup
 
 1. Update `package.json`
@@ -31,13 +32,16 @@ npm i # or yarn
 
 # Usage
 
+## Initialize
+
+```js
+import authModule from "biip-auth-nodejs"
+const auth = authModule("api_key")
+```
+
 ## Login
 
 ```js
-const auth = require("biip-auth-nodejs")("api_key");
-import authModule from "biip-auth-nodejs"
-const auth = authModule("api_key")
-
 await auth.login(
   "your@email.com",
   "password",
@@ -50,9 +54,6 @@ await auth.login(
 ### Initiate login
 
 ```js
-import authModule from "biip-auth-nodejs"
-const auth = authModule("api_key")
-
 await auth.evartai.sign(
   "https://www.website.com" // used to redirect after successful login
 )
@@ -61,30 +62,37 @@ await auth.evartai.sign(
 ### Login with ticket 
 
 ```js
-import authModule from "biip-auth-nodejs"
-const auth = authModule("api_key")
-
 await auth.evartai.login(
   "ticket" // ticket id after successful login (from url params)
 )
 ```
 
-## User
+## Authenticated
 
-### Me
+### Set Token
 
 ```js
-import authModule from "biip-auth-nodejs"
-const auth = authModule("api_key")
+const authWithToken = auth.setToken("token")
+```
+### CRUD users
 
-await auth.setUser("token").me()
+```js
+await authWithToken.users.get() // list of users with params
+await authWithToken.users.getOne(id) // one id
+await authWithToken.users.create() // one id
+await authWithToken.users.update(id) // update by id
+```
+### CRUD groups
+
+```js
+await authWithToken.groups.get() // list of users with params
+await authWithToken.groups.getOne(id) // one id
+await authWithToken.groups.create() // one id
+await authWithToken.groups.update(id) // update by id
 ```
 
 ### Logout
 
 ```js
-import authModule from "biip-auth-nodejs"
-const auth = authModule("api_key")
-
-await auth.setUser("token").logout()
+await authWithToken.users.logout()
 ```

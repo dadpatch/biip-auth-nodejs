@@ -1,5 +1,8 @@
 "use strict";
 const Request = require('./src/request')
+const Users = require('./src/users')
+const Groups = require('./src/groups')
+
 module.exports = function(apiKey, options = {}) {
   if (!apiKey) throw new Error('No API key provided')
   
@@ -11,13 +14,15 @@ module.exports = function(apiKey, options = {}) {
       login: (ticket, refresh = false) => request.post('/auth/evartai/login', {ticket, refresh}),
       sign: (host) => request.post('/auth/evartai/sign', {host})
     },
-    setUser: (token) => {
+    setToken: (token) => {
       request.setToken(token)
+
+      const users = new Users(request)
+      const groups = new Groups(request)
+
       return {
-        me: () => request.get('/api/users/me'),
-        logout: () => request.post('api/users/logout'),
-        invite: (personalCode) => request.post('api/users/invite', {personalCode}),
-        getUsers: (query) => request.get('/api/users', {query}),
+        users,
+        groups
       }
     },
   }

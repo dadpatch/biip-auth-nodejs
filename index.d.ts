@@ -5,6 +5,18 @@ interface Tokens {
   refreshToken?: string | null;
 }
 
+interface Crud {
+  get(data: GenericObject): Promise<Array<GenericObject>>
+  getOne(id: string, data: GenericObject): Promise<GenericObject>
+  create(data: GenericObject): Promise<GenericObject>
+  update(id: string, data: GenericObject): Promise<GenericObject>
+}
+
+interface UsersCrud extends Crud {
+  me(): Promise<GenericObject>
+  logout(): Promise<GenericObject>
+}
+
 interface GenericObject { [name: string]: any }
 
 declare namespace Auth {
@@ -18,11 +30,9 @@ declare namespace Auth {
         host: string;
       }>
     },
-    setUser(token: string): {
-      me(): Promise<GenericObject>
-      logout(): Promise<GenericObject>
-      getUsers(query: GenericObject): Promise<GenericObject>
-      invite(personalCode: string): Promise<GenericObject>
+    setToken(token: string): {
+      users: UsersCrud,
+      groups: Crud,
     }
   }
 }
