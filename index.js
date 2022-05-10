@@ -6,7 +6,7 @@ module.exports = function(apiKey, options = {}) {
   const request = new Request(apiKey, options.host)
 
   return {
-    login: (username, password, refresh = false) => request.post('/auth/login', {username, password, refresh}),
+    login: (email, password, refresh = false) => request.post('/auth/login', {email, password, refresh}),
     evartai: {
       login: (ticket, refresh = false) => request.post('/auth/evartai/login', {ticket, refresh}),
       sign: (host) => request.post('/auth/evartai/sign', {host})
@@ -15,9 +15,10 @@ module.exports = function(apiKey, options = {}) {
       request.setToken(token)
       return {
         me: () => request.get('/api/users/me'),
-        logout: () => request.post('api/users/logout')
+        logout: () => request.post('api/users/logout'),
+        invite: (personalCode) => request.post('api/users/invite', {personalCode}),
+        getUsers: (query) => request.get('/api/users', {query}),
       }
     },
-    getUsers: (query) => request.get('/users', {query}),
   }
 }

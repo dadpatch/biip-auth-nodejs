@@ -1,11 +1,5 @@
-// declare module "@am/auth-nodejs" {
-
-// };
-
-export = auth
 
 declare function auth(apiKey: string): Auth.AuthInterface
-
 interface Tokens {
   token: string;
   refreshToken?: string | null;
@@ -27,6 +21,10 @@ declare namespace Auth {
     setUser(token: string): {
       me(): Promise<GenericObject>
       logout(): Promise<GenericObject>
+      getUsers(query: GenericObject): Promise<GenericObject>
+      invite(personalCode: string): Promise<GenericObject>
     }
   }
 }
+
+export = auth
