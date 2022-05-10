@@ -1,4 +1,4 @@
-import Crud from './crud'
+const Crud = require('./crud')
 
 class Users extends Crud {
   endpoint = '/users'
