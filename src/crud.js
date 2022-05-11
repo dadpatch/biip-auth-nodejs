@@ -8,11 +8,11 @@ class Crud {
   }
 
   create(data) {
-    return this.request.get(`${this.endpoint}`, data)
+    return this.request.post(`${this.endpoint}`, data)
   }
 
   update(id, data) {
-    return this.request.get(`${this.endpoint}/${id}`, data)
+    return this.request.patch(`${this.endpoint}/${id}`, data)
   }
 
   get(data) {

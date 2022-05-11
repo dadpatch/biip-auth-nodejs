@@ -45,6 +45,10 @@ class Request {
     return this.request(`${url}`, { method: 'POST', body: options ? JSON.stringify(options) : null })
   }
 
+  patch(url, options) {
+    return this.request(`${url}`, { method: 'PATCH', body: options ? JSON.stringify(options) : null })
+  }
+
   request(endpoint = "", options = {}) {
     const url = this.host + endpoint;
 
