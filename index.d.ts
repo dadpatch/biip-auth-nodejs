@@ -18,6 +18,9 @@ interface UsersCrud extends Crud {
   me(): Promise<GenericObject>
   logout(): Promise<GenericObject>
 }
+interface AppsCrud extends Crud {
+  generateApiKey(id: string): Promise<GenericObject>
+}
 
 interface GenericObject { [name: string]: any }
 
@@ -34,6 +37,7 @@ declare namespace Auth {
     },
     setToken(token: string): {
       users: UsersCrud,
+      apps: AppsCrud,
       groups: Crud,
     }
   }
