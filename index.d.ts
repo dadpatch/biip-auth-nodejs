@@ -12,6 +12,7 @@ interface Crud {
   getOne(id: string, data?: GenericObject): Promise<GenericObject>
   create(data: GenericObject): Promise<GenericObject>
   update(id: string, data: GenericObject): Promise<GenericObject>
+  delete(id: string): Promise<GenericObject>
 }
 
 interface UsersCrud extends Crud {

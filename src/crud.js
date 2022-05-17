@@ -18,6 +18,10 @@ class Crud {
   get(data) {
     return this.request.get(`${this.endpoint}`, data)
   }
+
+  delete(id) {
+    return this.request.delete(`${this.endpoint}/${id}`)
+  }
 }
 
 module.exports = Crud
