@@ -11,6 +11,7 @@ module.exports = function(apiKey, options = {}) {
 
   return {
     login: (email, password, refresh = false) => request.post('/auth/login', {email, password, refresh}),
+    remindPassword: (email) => request.post('/auth/remind', {email}),
     evartai: {
       login: (ticket, refresh = false) => request.post('/auth/evartai/login', {ticket, refresh}),
       sign: (host) => request.post('/auth/evartai/sign', {host})

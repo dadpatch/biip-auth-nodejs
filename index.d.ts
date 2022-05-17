@@ -28,6 +28,7 @@ interface GenericObject { [name: string]: any }
 declare namespace Auth {
   export interface AuthInterface {
     login(email: string, password: string, refresh?: boolean): Promise<Tokens>
+    remindPassword(email: string): Promise<GenericObject>
     evartai: {
       login(ticket: string, refresh?: boolean): Promise<Tokens>
       sign(host: string): Promise<{
