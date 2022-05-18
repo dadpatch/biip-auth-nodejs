@@ -49,6 +49,10 @@ class Request {
     return this.request(`${url}`, { method: 'PATCH', body: options ? JSON.stringify(options) : null })
   }
 
+  delete(url, options) {
+    return this.request(`${url}`, { method: 'DELETE', body: options ? JSON.stringify(options) : null })
+  }
+
   request(endpoint = "", options = {}) {
     const url = this.host + endpoint;
 
