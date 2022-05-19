@@ -16,18 +16,9 @@
 # Instalation 
 ## Setup
 
-1. Update `package.json`
-```json
-{
-  "dependencies": {
-    "biip-auth-nodejs": "github:DadPatch/biip-auth-nodejs",
-  }
-}
-```
-
-2. Run
 ```bash
-npm i # or yarn
+npm install DadPatch/biip-auth-nodejs
+yarn add DadPatch/biip-auth-nodejs
 ```
 
 # Usage
