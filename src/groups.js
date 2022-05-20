@@ -1,7 +1,7 @@
 const Crud = require('./crud')
 
 class Groups extends Crud {
-  endpoint = '/groups'
+  endpoint = '/api/groups'
 }
 
 module.exports = Groups

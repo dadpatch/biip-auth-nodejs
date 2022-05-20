@@ -1,7 +1,7 @@
 const Crud = require('./crud')
 
 class Users extends Crud {
-  endpoint = '/users'
+  endpoint = '/api/users'
 
   me() {
     return this.request.get(`${this.endpoint}/me`)
