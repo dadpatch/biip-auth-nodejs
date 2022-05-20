@@ -18,6 +18,11 @@ interface Crud {
 interface UsersCrud extends Crud {
   me(): Promise<GenericObject>
   logout(): Promise<GenericObject>
+  invite(data: {
+    companyCode?: string,
+    personalCode?: string,
+    companyId?: string
+  }): Promise<GenericObject>
 }
 interface AppsCrud extends Crud {
   generateApiKey(id: string): Promise<GenericObject>

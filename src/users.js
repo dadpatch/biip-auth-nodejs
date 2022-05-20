@@ -10,6 +10,10 @@ class Users extends Crud {
   logout() {
     return this.request.post(`${this.endpoint}/logout`)
   }
+
+  invite(data) {
+    return this.request.post(`${this.endpoint}/invite`, data)
+  }
 }
 
 module.exports = Users
