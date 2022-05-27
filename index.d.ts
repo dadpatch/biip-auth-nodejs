@@ -9,10 +9,10 @@ interface Tokens {
 
 interface Crud {
   get(data?: GenericObject): Promise<Array<GenericObject>>
-  getOne(id: string, data?: GenericObject): Promise<GenericObject>
+  getOne(id: string | number, data?: GenericObject): Promise<GenericObject>
   create(data: GenericObject): Promise<GenericObject>
-  update(id: string, data: GenericObject): Promise<GenericObject>
-  delete(id: string): Promise<GenericObject>
+  update(id: string | number, data: GenericObject): Promise<GenericObject>
+  delete(id: string | number): Promise<GenericObject>
 }
 
 interface UsersCrud extends Crud {
@@ -21,11 +21,11 @@ interface UsersCrud extends Crud {
   invite(data: {
     companyCode?: string,
     personalCode?: string,
-    companyId?: string
+    companyId?: string | number
   }): Promise<GenericObject>
 }
 interface AppsCrud extends Crud {
-  generateApiKey(id: string): Promise<GenericObject>
+  generateApiKey(id: string | number): Promise<GenericObject>
 }
 
 interface GenericObject { [name: string]: any }
