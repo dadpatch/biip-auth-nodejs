@@ -11,6 +11,15 @@ const serialize = function(obj) {
     return result.length > 0 ? ('?' + result) : '';
 }
 
+class AuthError extends Error {
+  name = 'AuthError'
+  constructor(message, code, type) {
+    super(message)
+		this.code = code || 500;
+		this.type = type;
+  }
+}
+
 class Request {
   constructor(apiKey, host = 'https://auth.biip.lt') {
     this.apiKey = apiKey
@@ -61,7 +70,16 @@ class Request {
         ...options,
     };
 
-    return fetch(url, config).then(res => res.json())
+    return fetch(url, config)
+      .then(async res => {
+        if (res.ok) return res
+
+        // handling errors
+        const data = await res.json()
+        const error = new AuthError(data.message, data.code, data.type)
+        return Promise.reject(error);
+      })
+      .then(res => res.json())
   }
 }
 
