@@ -14,8 +14,8 @@ module.exports = function(apiKey, options = {}) {
     remindPassword: (email) => request.post('/auth/remind', {email}),
     refreshToken: (token) => request.post('/auth/refresh', {token}),
     refreshToken: (token) => request.post('/auth/refresh', {token}),
-    changePasswordVerify: (data) => request.post(`/auth/change/verify`, {data}),
-    changePasswordAccept: (data) => request.post(`/auth/change/accept`, {data}),
+    changePasswordVerify: (data) => request.post(`/auth/change/verify`, data),
+    changePasswordAccept: (data) => request.post(`/auth/change/accept`, data),
     evartai: {
       login: (ticket, refresh = false) => request.post('/auth/evartai/login', {ticket, refresh}),
       sign: (host) => request.post('/auth/evartai/sign', {host})
