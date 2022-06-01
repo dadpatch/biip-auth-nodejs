@@ -19,36 +19,36 @@ interface GenericObject { [name: string]: any }
 
 declare namespace Auth {
   export interface AuthInterface {
-    login(email: string, password: string, refresh?: boolean): Promise<Tokens>
-    remindPassword(email: string): Promise<GenericObject>
-    refreshToken(token: string): Promise<Tokens>
-    app(): Promise<GenericObject>
-    changePasswordVerify(data: {h: string, s: string}): Promise<GenericObject>,
-    changePasswordAccept(data: {h: string, s: string, password: string}): Promise<GenericObject>,
+    login(email: string, password: string, refresh?: boolean): Promise<Tokens>;
+    remindPassword(email: string): Promise<GenericObject>;
+    refreshToken(token: string): Promise<Tokens>;
+    app(): Promise<GenericObject>;
+    changePasswordVerify(data: {h: string, s: string}): Promise<GenericObject>;
+    changePasswordAccept(data: {h: string, s: string, password: string}): Promise<GenericObject>;
     evartai: {
-      login(ticket: string, refresh?: boolean): Promise<Tokens>
+      login(ticket: string, refresh?: boolean): Promise<Tokens>;
       sign(host: string): Promise<{
         url: string;
         ticket: string;
         host: string;
-      }>
-    },
+      }>;
+    };
     setToken(token: string): {
       users: Crud & {
-        me(): Promise<GenericObject>
-        logout(): Promise<GenericObject>
+        me(): Promise<GenericObject>;
+        logout(): Promise<GenericObject>;
         invite(data: {
-          companyCode?: string,
-          personalCode?: string,
-          companyId?: string | number
-        }): Promise<GenericObject>
-      },
+          companyCode?: string;
+          personalCode?: string;
+          companyId?: string | number;
+        }): Promise<GenericObject>;
+      };
       apps: Crud & {
         generateApiKey(id: string | number): Promise<GenericObject>
-      },
-      groups: Crud,
-      permissions: Crud,
-    }
+      };
+      groups: Crud;
+      permissions: Crud;
+    };
   }
 }
 
