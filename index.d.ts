@@ -1,6 +1,6 @@
 
 declare function auth(apiKey: string, options?: {
-  host?: string 
+  host?: string;
 }): Auth.AuthInterface
 interface Tokens {
   token: string;
@@ -8,11 +8,11 @@ interface Tokens {
 }
 
 interface Crud {
-  get(data?: GenericObject): Promise<Array<GenericObject>>
-  getOne(id: string | number, data?: GenericObject): Promise<GenericObject>
-  create(data: GenericObject): Promise<GenericObject>
-  update(id: string | number, data: GenericObject): Promise<GenericObject>
-  delete(id: string | number): Promise<GenericObject>
+  get(data?: GenericObject): Promise<Array<GenericObject>>;
+  getOne(id: string | number, data?: GenericObject): Promise<GenericObject>;
+  create(data: GenericObject): Promise<GenericObject>;
+  update(id: string | number, data: GenericObject): Promise<GenericObject>;
+  delete(id: string | number): Promise<GenericObject>;
 }
 
 interface GenericObject { [name: string]: any }
