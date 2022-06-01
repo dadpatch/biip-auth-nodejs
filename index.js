@@ -3,6 +3,7 @@ const Request = require('./src/request')
 const Users = require('./src/users')
 const Groups = require('./src/groups');
 const Apps = require('./src/apps');
+const Permissions = require('./src/permissions');
 
 module.exports = function(apiKey, options = {}) {
   if (!apiKey) throw new Error('No API key provided')
@@ -26,11 +27,13 @@ module.exports = function(apiKey, options = {}) {
       const users = new Users(request)
       const groups = new Groups(request)
       const apps = new Apps(request)
+      const permissions = new Permissions(request)
 
       return {
         users,
         groups,
-        apps
+        apps,
+        permissions
       }
     },
   }

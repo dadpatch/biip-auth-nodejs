@@ -15,19 +15,6 @@ interface Crud {
   delete(id: string | number): Promise<GenericObject>
 }
 
-interface UsersCrud extends Crud {
-  me(): Promise<GenericObject>
-  logout(): Promise<GenericObject>
-  invite(data: {
-    companyCode?: string,
-    personalCode?: string,
-    companyId?: string | number
-  }): Promise<GenericObject>
-}
-interface AppsCrud extends Crud {
-  generateApiKey(id: string | number): Promise<GenericObject>
-}
-
 interface GenericObject { [name: string]: any }
 
 declare namespace Auth {
@@ -46,9 +33,20 @@ declare namespace Auth {
       }>
     },
     setToken(token: string): {
-      users: UsersCrud,
-      apps: AppsCrud,
+      users: Crud & {
+        me(): Promise<GenericObject>
+        logout(): Promise<GenericObject>
+        invite(data: {
+          companyCode?: string,
+          personalCode?: string,
+          companyId?: string | number
+        }): Promise<GenericObject>
+      },
+      apps: Crud & {
+        generateApiKey(id: string | number): Promise<GenericObject>
+      },
       groups: Crud,
+      permissions: Crud,
     }
   }
 }
