@@ -22,6 +22,7 @@ declare namespace Auth {
     login(email: string, password: string, refresh?: boolean): Promise<Tokens>
     remindPassword(email: string): Promise<GenericObject>
     refreshToken(token: string): Promise<Tokens>
+    app(): Promise<GenericObject>
     changePasswordVerify(data: {h: string, s: string}): Promise<GenericObject>,
     changePasswordAccept(data: {h: string, s: string, password: string}): Promise<GenericObject>,
     evartai: {
