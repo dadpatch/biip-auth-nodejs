@@ -47,7 +47,13 @@ declare namespace Auth {
         generateApiKey(id: string | number): Promise<GenericObject>
       };
       groups: Crud;
-      permissions: Crud;
+      permissions: Crud & {
+        getMunicipalities(): Promise<GenericObject>
+        createWithMunicipalities(data: {
+          group: string | number;
+          municipalities: Array<string>
+        }): Promise<GenericObject>
+      };
     };
   }
 }
