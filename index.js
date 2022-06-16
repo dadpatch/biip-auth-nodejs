@@ -14,7 +14,6 @@ module.exports = function(apiKey, options = {}) {
     login: (email, password, refresh = false) => request.post('/auth/login', {email, password, refresh}),
     remindPassword: (email) => request.post('/auth/remind', {email}),
     refreshToken: (token) => request.post('/auth/refresh', {token}),
-    refreshToken: (token) => request.post('/auth/refresh', {token}),
     app: () => request.get('/auth/apps/me'),
     changePasswordVerify: ({h, s}) => request.post(`/auth/change/verify`, {h, s}),
     changePasswordAccept: ({h, s, password}) => request.post(`/auth/change/accept`, {h, s, password}),
