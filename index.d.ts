@@ -42,6 +42,8 @@ declare namespace Auth {
           personalCode?: string;
           companyId?: string | number;
         }): Promise<GenericObject>;
+        assignToGroup(id: string | number, groupId: string | number, role: string): Promise<GenericObject>
+        unassignFromGroup(id: string | number, groupId: string | number): Promise<GenericObject>
       };
       apps: Crud & {
         generateApiKey(id: string | number): Promise<GenericObject>
