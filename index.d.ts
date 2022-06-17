@@ -17,6 +17,10 @@ interface Crud {
 
 interface GenericObject { [name: string]: any }
 
+enum UserGroupRole {
+  USER = 'USER',
+  ADMIN = 'ADMIN'
+}
 declare namespace Auth {
   export interface AuthInterface {
     login(email: string, password: string, refresh?: boolean): Promise<Tokens>;
@@ -41,8 +45,9 @@ declare namespace Auth {
           companyCode?: string;
           personalCode?: string;
           companyId?: string | number;
+          role?: UserGroupRole;
         }): Promise<GenericObject>;
-        assignToGroup(id: string | number, groupId: string | number, role: string): Promise<GenericObject>
+        assignToGroup(id: string | number, groupId: string | number, role: UserGroupRole): Promise<GenericObject>
         unassignFromGroup(id: string | number, groupId: string | number): Promise<GenericObject>
       };
       apps: Crud & {
