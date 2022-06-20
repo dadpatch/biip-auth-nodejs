@@ -76,7 +76,7 @@ await authWithToken.users.update(id) // update by id
 ### CRUD groups
 
 ```js
-await authWithToken.groups.get() // list of users with params
+await authWithToken.groups.get() // list of groups with params
 await authWithToken.groups.getOne(id) // one id
 await authWithToken.groups.create() // one id
 await authWithToken.groups.update(id) // update by id
