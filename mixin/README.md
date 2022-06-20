@@ -35,6 +35,8 @@ users.resolveToken
 
 // auth
 login
+evartai.sign
+evartai.login
 refreshToken
 remindPassword
 changePasswordVerify
