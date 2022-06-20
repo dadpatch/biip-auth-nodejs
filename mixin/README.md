@@ -13,7 +13,7 @@ permissions.get
 permissions.update
 permissions.remove
 permissions.create
-permissions.municipalities
+permissions.getMunicipalities
 permissions.createWithMunicipalities
 
 // apps
