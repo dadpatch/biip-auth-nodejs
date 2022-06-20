@@ -5,7 +5,7 @@ const Groups = require('./src/groups');
 const Apps = require('./src/apps');
 const Permissions = require('./src/permissions');
 
-module.exports = function(apiKey, options = {}) {
+module.exports = function auth(apiKey, options = {}) {
   if (!apiKey) throw new Error('No API key provided')
   
   const request = new Request(apiKey, options.host)

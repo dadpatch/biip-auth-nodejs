@@ -17,11 +17,11 @@ interface Crud {
 
 interface GenericObject { [name: string]: any }
 
-enum UserGroupRole {
-  USER = 'USER',
-  ADMIN = 'ADMIN'
-}
 declare namespace Auth {
+  export enum UserGroupRole {
+    USER = 'USER',
+    ADMIN = 'ADMIN'
+  }
   export interface AuthInterface {
     login(email: string, password: string, refresh?: boolean): Promise<Tokens>;
     remindPassword(email: string): Promise<GenericObject>;
@@ -52,6 +52,7 @@ declare namespace Auth {
       };
       apps: Crud & {
         generateApiKey(id: string | number): Promise<GenericObject>
+        getUsersApp(): Promise<GenericObject>
       };
       groups: Crud;
       permissions: Crud & {
@@ -64,5 +65,4 @@ declare namespace Auth {
     };
   }
 }
-
 export = auth

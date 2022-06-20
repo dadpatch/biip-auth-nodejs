@@ -6,6 +6,10 @@ class Apps extends Crud {
   generateApiKey(id) {
     return this.request.post(`${this.endpoint}/${id}/generate`)
   }
+
+  getUsersApp() {
+    return this.request.get(`${this.endpoint}/users`)
+  }
 }
 
 module.exports = Apps
