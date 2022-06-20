@@ -34,7 +34,7 @@ module.exports = function authMixin(apiKey, options = {}) {
       'users.remove': (ctx) => authModule.setToken(ctx.meta.authToken).users.delete(ctx.params.id),
       'users.create': (ctx) => authModule.setToken(ctx.meta.authToken).users.create(ctx.params),
       'users.logout': (ctx) => authModule.setToken(ctx.meta.authToken).users.logout(),
-      'users.resolveToken': (ctx) => authModule.setToken(ctx.params.authToken).users.me(),
+      'users.resolveToken': (ctx) => authModule.setToken(ctx.meta.authToken).users.me(),
 
       'login': (ctx) => authModule.login(ctx.params.email, ctx.params.password, ctx.params.refresh || false),
       'refreshToken': (ctx) => authModule.refreshToken(ctx.params.token),
