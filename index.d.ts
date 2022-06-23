@@ -45,9 +45,10 @@ declare namespace Auth {
           companyCode?: string;
           personalCode?: string;
           companyId?: string | number;
-          role?: UserGroupRole;
+          role?: UserGroupRole | string;
+          notify?: Array<string>;
         }): Promise<GenericObject>;
-        assignToGroup(id: string | number, groupId: string | number, role: UserGroupRole): Promise<GenericObject>
+        assignToGroup(id: string | number, groupId: string | number, role: UserGroupRole | string): Promise<GenericObject>
         unassignFromGroup(id: string | number, groupId: string | number): Promise<GenericObject>
       };
       apps: Crud & {
