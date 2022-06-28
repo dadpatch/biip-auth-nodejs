@@ -32,6 +32,9 @@ users.remove
 users.create
 users.logout
 users.resolveToken
+users.invite
+users.assignToGroup
+users.unassignFromGroup
 
 // auth
 login

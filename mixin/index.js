@@ -38,6 +38,9 @@ module.exports = function authMixin(apiKey, options = {}) {
       'users.create': (ctx) => authModule.setToken(ctx.meta.authToken).users.create(ctx.params),
       'users.logout': (ctx) => authModule.setToken(ctx.meta.authToken).users.logout(),
       'users.resolveToken': (ctx) => authModule.setToken(ctx.meta.authToken).users.me(),
+      'users.invite': (ctx) => authModule.setToken(ctx.meta.authToken).users.invite(ctx.params),
+      'users.assignToGroup': (ctx) => authModule.setToken(ctx.meta.authToken).users.assignToGroup(ctx.params.id, ctx.params.groupId, ctx.params.role),
+      'users.unassignFromGroup': (ctx) => authModule.setToken(ctx.meta.authToken).users.unassignFromGroup(ctx.params.id, ctx.params.groupId),
 
       'login': (ctx) => authModule.login(ctx.params.email, ctx.params.password, ctx.params.refresh || false),
       'evartai.sign': () => authModule.evartai.sign(appHost),
