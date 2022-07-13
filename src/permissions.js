@@ -10,6 +10,10 @@ class Permissions extends Crud {
   createWithMunicipalities(data) {
     return this.request.post(`${this.endpoint}/municipalities`, data)
   }
+
+  getUsersInMunicipality(id, data) {
+    return this.request.get(`${this.endpoint}/municipalities/${id}/users`, data)
+  }
 }
 
 module.exports = Permissions

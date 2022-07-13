@@ -59,6 +59,9 @@ declare namespace Auth {
       groups: Crud;
       permissions: Crud & {
         getMunicipalities(): Promise<GenericObject>
+        getUsersInMunicipality(id: string | number, data?: {
+          role?: string
+        }): Promise<GenericObject>
         createWithMunicipalities(data: {
           group: string | number;
           municipalities: Array<string>
