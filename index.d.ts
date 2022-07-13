@@ -29,6 +29,7 @@ declare namespace Auth {
     app(): Promise<GenericObject>;
     changePasswordVerify(data: {h: string, s: string}): Promise<GenericObject>;
     changePasswordAccept(data: {h: string, s: string, password: string}): Promise<GenericObject>;
+    getSeedData(): Promise<GenericObject>;
     evartai: {
       login(ticket: string, refresh?: boolean): Promise<Tokens>;
       sign(host: string): Promise<{

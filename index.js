@@ -17,6 +17,7 @@ module.exports = function auth(apiKey, options = {}) {
     app: () => request.get('/auth/apps/me'),
     changePasswordVerify: ({h, s}) => request.post(`/auth/change/verify`, {h, s}),
     changePasswordAccept: ({h, s, password}) => request.post(`/auth/change/accept`, {h, s, password}),
+    getSeedData: () => request.get('/auth/seedData'),
     evartai: {
       login: (ticket, refresh = false) => request.post('/auth/evartai/login', {ticket, refresh}),
       sign: (host) => request.post('/auth/evartai/sign', {host})
