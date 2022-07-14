@@ -2,13 +2,17 @@
 
 const fetch = require("isomorphic-unfetch");
 const serialize = function(obj) {
-    var str = [];
-    for (var p in obj)
-        if (obj.hasOwnProperty(p)) {
-            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-        }
-    const result = str.join("&")
-    return result.length > 0 ? ('?' + result) : '';
+  var str = [];
+  for (const p in obj)
+      if (obj.hasOwnProperty(p)) {
+          let value = obj[p]
+          if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+            value = JSON.stringify(value)
+          }
+          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(value));
+      }
+  const result = str.join("&")
+  return result.length > 0 ? ('?' + result) : '';
 }
 
 class AuthError extends Error {
