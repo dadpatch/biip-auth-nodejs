@@ -3,14 +3,22 @@
 const fetch = require("isomorphic-unfetch");
 const serialize = function(obj) {
   var str = [];
-  for (const p in obj)
-      if (obj.hasOwnProperty(p)) {
-          let value = obj[p]
-          if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-            value = JSON.stringify(value)
-          }
-          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(value));
+
+  for (const p in obj) {
+    if (obj.hasOwnProperty(p)) {
+      const convertValue = function(value) {
+        if (Array.isArray(value)) {
+          value = `[${value.map(i => convertValue(i)).join(',')}]`
+        } else if (typeof value === 'object' && !Array.isArray(value)) {
+          value = JSON.stringify(value)
+        } 
+
+        return value
       }
+
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(convertValue(obj[p])));
+    }
+  }
   const result = str.join("&")
   return result.length > 0 ? ('?' + result) : '';
 }
