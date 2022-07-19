@@ -3,8 +3,8 @@ const Crud = require('./crud')
 class Permissions extends Crud {
   endpoint = '/api/permissions'
 
-  getUsersByAccess(access = '') {
-    return this.request.get(`${this.endpoint}/users`, { access })
+  getUsersByAccess(access, data = {}) {
+    return this.request.get(`${this.endpoint}/users`, { access, ...data })
   }
 
   getMunicipalities() {
