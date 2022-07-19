@@ -44,6 +44,7 @@ module.exports = function authMixin(apiKey, options = {}) {
       'users.unassignFromGroup': (ctx) => authModule.setToken(ctx.meta.authToken).users.unassignFromGroup(ctx.params.id, ctx.params.groupId),
 
       'login': (ctx) => authModule.login(ctx.params.email, ctx.params.password, ctx.params.refresh || false),
+      'getSeedData': () => authModule.getSeedData(),
       'evartai.sign': () => authModule.evartai.sign(appHost),
       'evartai.login': (ctx) => authModule.evartai.login(ctx.params.ticket, ctx.params.refresh || false),
       'refreshToken': (ctx) => authModule.refreshToken(ctx.params.token),
