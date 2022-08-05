@@ -48,6 +48,7 @@ declare namespace Auth {
           companyId?: string | number;
           role?: UserGroupRole | string;
           notify?: Array<string>;
+          throwErrors?: boolean;
         }): Promise<GenericObject>;
         assignToGroup(id: string | number, groupId: string | number, role: UserGroupRole | string): Promise<GenericObject>
         unassignFromGroup(id: string | number, groupId: string | number): Promise<GenericObject>
