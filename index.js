@@ -3,7 +3,7 @@ const Request = require('./src/request')
 const Users = require('./src/users')
 const Groups = require('./src/groups');
 const Apps = require('./src/apps');
-const Public = require('./src/public');
+const PublicEndpoints = require('./src/public');
 const Permissions = require('./src/permissions');
 
 module.exports = function auth(apiKey, options = {}) {
@@ -11,7 +11,7 @@ module.exports = function auth(apiKey, options = {}) {
   
   const request = new Request(apiKey, options.host)
 
-  const public = new Public(request)
+  const publicEndpoints = new PublicEndpoints(request)
   return {
     login: (email, password, refresh = false) => request.post('/auth/login', {email, password, refresh}),
     remindPassword: (email) => request.post('/auth/remind', {email}),
@@ -24,7 +24,7 @@ module.exports = function auth(apiKey, options = {}) {
       login: (ticket, refresh = false) => request.post('/auth/evartai/login', {ticket, refresh}),
       sign: (host) => request.post('/auth/evartai/sign', {host})
     },
-    public: public,
+    public: publicEndpoints,
     setToken: (token) => {
       request.setToken(token)
 

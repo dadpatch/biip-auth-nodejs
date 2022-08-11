@@ -1,6 +1,6 @@
 const Crud = require('./crud')
 
-class Public extends Crud {
+class PublicEndpoints extends Crud {
   endpoint = '/public'
 
   getUsersInGroup(groupId) {
@@ -8,4 +8,4 @@ class Public extends Crud {
   }
 }
 
-module.exports = Public
+module.exports = PublicEndpoints
