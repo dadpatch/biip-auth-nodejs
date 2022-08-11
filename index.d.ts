@@ -38,6 +38,9 @@ declare namespace Auth {
         host: string;
       }>;
     };
+    public: {
+      getUsersInGroup(groupId: string | number): Promise<GenericObject>
+    };
     setToken(token: string): {
       users: Crud & {
         me(): Promise<GenericObject>;

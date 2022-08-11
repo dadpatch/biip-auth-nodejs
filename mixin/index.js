@@ -51,6 +51,9 @@ module.exports = function authMixin(apiKey, options = {}) {
       'remindPassword': (ctx) => authModule.remindPassword(ctx.params.email),
       'changePasswordVerify': (ctx) => authModule.changePasswordVerify({ h: ctx.params.h, s: ctx.params.s }),
       'changePasswordAccept': (ctx) => authModule.changePasswordAccept({ h: ctx.params.h, s: ctx.params.s, password: ctx.params.password }),
+
+      // public
+      'public.getUsersInGroup': (ctx) => authModule.public.getUsersInGroup(ctx.params.groupId)
     },
   };
 
