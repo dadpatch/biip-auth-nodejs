@@ -24,6 +24,9 @@ module.exports = function authMixin(apiKey, options = {}) {
       'permissions.createWithMunicipalities': (ctx) => authModule.setToken(ctx.meta.authToken).permissions.createWithMunicipalities(ctx.params),
 
       // apps
+      'apps.list': (ctx) => authModule.setToken(ctx.meta.authToken).apps.get(ctx.params),
+      'apps.get': (ctx) => authModule.setToken(ctx.meta.authToken).apps.getOne(ctx.params.id, ctx.params),
+      'apps.getUsersApp': (ctx) => authModule.setToken(ctx.meta.authToken).apps.getUsersApp(),
       'apps.resolveToken': () => authModule.app(),
 
       // users

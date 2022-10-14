@@ -75,6 +75,9 @@ declare namespace Auth {
           groupId: string | number
         ): Promise<GenericObject>;
       };
+      apps: Crud & {
+        getUsersApp(): Promise<GenericObject>;
+      };
       groups: Crud;
       permissions: Crud & {
         getUsersByAccess(access: string, data?: any): Promise<GenericObject>;
