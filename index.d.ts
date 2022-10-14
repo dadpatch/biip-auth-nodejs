@@ -68,7 +68,7 @@ declare namespace Auth {
         assignToGroup(
           id: string | number,
           groupId: string | number,
-          role: UserGroupRole | string
+          role?: UserGroupRole | string
         ): Promise<GenericObject>;
         unassignFromGroup(
           id: string | number,
@@ -93,4 +93,5 @@ declare namespace Auth {
     };
   }
 }
+
 export = auth;
