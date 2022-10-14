@@ -24,11 +24,6 @@ module.exports = function authMixin(apiKey, options = {}) {
       'permissions.createWithMunicipalities': (ctx) => authModule.setToken(ctx.meta.authToken).permissions.createWithMunicipalities(ctx.params),
 
       // apps
-      'apps.list': (ctx) => authModule.setToken(ctx.meta.authToken).apps.get(ctx.params),
-      'apps.get': (ctx) => authModule.setToken(ctx.meta.authToken).apps.getOne(ctx.params.id, ctx.params),
-      'apps.generateApiKey': (ctx) => authModule.setToken(ctx.meta.authToken).apps.generateApiKey(ctx.params.id),
-      'apps.getUsersApp': (ctx) => authModule.setToken(ctx.meta.authToken).apps.getUsersApp(),
-      'apps.create': (ctx) => authModule.setToken(ctx.meta.authToken).apps.create(ctx.params),
       'apps.resolveToken': () => authModule.app(),
 
       // users
@@ -42,6 +37,7 @@ module.exports = function authMixin(apiKey, options = {}) {
       'users.invite': (ctx) => authModule.setToken(ctx.meta.authToken).users.invite(ctx.params),
       'users.assignToGroup': (ctx) => authModule.setToken(ctx.meta.authToken).users.assignToGroup(ctx.params.id, ctx.params.groupId, ctx.params.role),
       'users.unassignFromGroup': (ctx) => authModule.setToken(ctx.meta.authToken).users.unassignFromGroup(ctx.params.id, ctx.params.groupId),
+      'users.impersonate': (ctx) => authModule.setToken(ctx.meta.authToken).users.impersonate(ctx.params.id),
 
       'login': (ctx) => authModule.login(ctx.params.email, ctx.params.password, ctx.params.refresh || false),
       'getSeedData': () => authModule.getSeedData(),

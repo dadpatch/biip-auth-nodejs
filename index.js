@@ -30,13 +30,11 @@ module.exports = function auth(apiKey, options = {}) {
 
       const users = new Users(request)
       const groups = new Groups(request)
-      const apps = new Apps(request)
       const permissions = new Permissions(request)
 
       return {
         users,
         groups,
-        apps,
         permissions
       }
     },
