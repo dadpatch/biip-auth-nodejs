@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/DadPatch/biip-auth-nodejs#readme",
   "dependencies": {
-    "isomorphic-unfetch": "^3.1.0"
+    "isomorphic-unfetch": "^3.1.0",
+    "qs": "^6.11.2"
   }
 }

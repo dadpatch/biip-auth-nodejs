@@ -1,25 +1,10 @@
 "use strict";
 
 const fetch = require("isomorphic-unfetch");
+const QueryString = require("qs");
+
 const serialize = function(obj) {
-  var str = [];
-
-  for (const p in obj) {
-    if (obj.hasOwnProperty(p)) {
-      const convertValue = function(value) {
-        if (Array.isArray(value)) {
-          value = `[${value.map(i => convertValue(i)).join(',')}]`
-        } else if (typeof value === 'object' && !Array.isArray(value)) {
-          value = JSON.stringify(value)
-        } 
-
-        return value
-      }
-
-      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(convertValue(obj[p])));
-    }
-  }
-  const result = str.join("&")
+  const result = QueryString.stringify(obj);
   return result.length > 0 ? ('?' + result) : '';
 }
 
