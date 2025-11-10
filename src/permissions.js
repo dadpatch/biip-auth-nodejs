@@ -20,7 +20,7 @@ class Permissions extends Crud {
   }
 
   modifyAccessForGroup(data) {
-    return this.request.get(`${this.endpoint}/modifyAccessForGroup`, data)
+    return this.request.post(`${this.endpoint}/modifyAccessForGroup`, data)
   }
 }
 
