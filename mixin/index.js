@@ -22,6 +22,7 @@ module.exports = function authMixin(apiKey, options = {}) {
       'permissions.getUsersByAccess': (ctx) => authModule.setToken(ctx.meta.authToken).permissions.getUsersByAccess(ctx.params.access, ctx.params),
       'permissions.getMunicipalities': (ctx) => authModule.setToken(ctx.meta.authToken).permissions.getMunicipalities(ctx.params),
       'permissions.createWithMunicipalities': (ctx) => authModule.setToken(ctx.meta.authToken).permissions.createWithMunicipalities(ctx.params),
+      'permissions.modifyAccessForGroup': (ctx) => authModule.setToken(ctx.meta.authToken).permissions.modifyAccessForGroup(ctx.params),
 
       // apps
       'apps.list': (ctx) => authModule.setToken(ctx.meta.authToken).apps.get(ctx.params),
