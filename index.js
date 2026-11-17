@@ -26,7 +26,8 @@ module.exports = function auth(apiKey, options = {}) {
     evartai: {
       login: (ticket, refresh = false) =>
         request.post("/auth/evartai/login", { ticket, refresh }),
-      sign: (host) => request.post("/auth/evartai/sign", { host }),
+      sign: (host, provider) =>
+        request.post("/auth/evartai/sign", provider ? { host, provider } : { host }),
     },
     public: publicEndpoints,
     setToken: (token) => {
