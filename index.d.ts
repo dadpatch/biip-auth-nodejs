@@ -43,7 +43,7 @@ declare namespace Auth {
     getSeedData(): Promise<GenericObject>;
     evartai: {
       login(ticket: string, refresh?: boolean): Promise<Tokens>;
-      sign(host: string): Promise<{
+      sign(host: string, provider?: string): Promise<{
         url: string;
         ticket: string;
         host: string;

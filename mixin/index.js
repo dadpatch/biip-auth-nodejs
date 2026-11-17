@@ -45,7 +45,7 @@ module.exports = function authMixin(apiKey, options = {}) {
 
       'login': (ctx) => authModule.login(ctx.params.email, ctx.params.password, ctx.params.refresh || false),
       'getSeedData': () => authModule.getSeedData(),
-      'evartai.sign': (ctx) => authModule.evartai.sign(ctx.params.appHost || appHost),
+      'evartai.sign': (ctx) => authModule.evartai.sign(ctx.params.appHost || appHost, ctx.params.provider),
       'evartai.login': (ctx) => authModule.evartai.login(ctx.params.ticket, ctx.params.refresh || false),
       'refreshToken': (ctx) => authModule.refreshToken(ctx.params.token),
       'remindPassword': (ctx) => authModule.remindPassword(ctx.params.email),
